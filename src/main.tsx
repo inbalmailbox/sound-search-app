@@ -5,6 +5,9 @@ import { store } from "./store/store";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import "./styles/index.css";
+import { initTheme } from "./styles/theme";
+
+initTheme(); // <-- apply dark/light early to avoid flash
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
