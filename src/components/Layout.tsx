@@ -9,31 +9,36 @@ const Layout: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex flex-col">
       {/* Header */}
-      <header className="flex items-center justify-between p-4 bg-blue-600 text-white shadow-md">
-        <h1 className="text-2xl font-bold flex items-center">
-          🎵 Sound Search
-        </h1>
-        <ThemeToggle />
-      </header>
+      <header className="sticky top-0 z-40 bg-brand-600/95 backdrop-blur text-white">
+  <div className="max-w-7xl mx-auto px-5 h-14 flex items-center justify-between">
+    <div className="flex items-center gap-3">
+      <span className="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-white/15">
+        🎵
+      </span>
+      <h1 className="text-xl font-semibold tracking-tight">Sound Search</h1>
+    </div>
+    <ThemeToggle />
+  </div>
+</header>
 
       {/* Main Grid */}
-      <main className="flex-1 container mx-auto p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-        {/* Left: Search */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
-          <SearchBar />
-          <SearchResults />
-        </div>
+     <main className="max-w-7xl mx-auto p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <section className="app-card p-5 md:col-span-1">
+            <SearchBar />
+            <div className="mt-4">
+            <SearchResults />
+            </div>
+        </section>
 
-        {/* Center: Image Container (placeholder for now) */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-4 flex items-center justify-center">
-         <ImageContainer />
-        </div>
+        <section className="md:col-span-1">
+            <ImageContainer />
+        </section>
 
-        {/* Right: Recent Searches */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
-          <RecentSearches />
-        </div>
-      </main>
+        <aside className="app-card p-5 md:col-span-1">
+            <RecentSearches />
+        </aside>
+        </main>
+
 
       {/* Footer */}
       <footer className="text-center py-4 text-sm text-gray-500">

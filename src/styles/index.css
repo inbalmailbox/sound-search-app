@@ -2,7 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Example custom styles */
-.btn {
-  @apply px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition;
+/* Inter font (or swap to your corporate font) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --card-bg: #ffffff;
+  --page-bg: #f5f7fb;
+}
+.dark :root {
+  --card-bg: #111827; /* slate-900-ish */
+  --page-bg: #0b1220;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  background: var(--page-bg);
+}
+
+/* Reusable card & tile helpers */
+@layer components {
+  .app-card {
+    @apply bg-[color:var(--card-bg)] rounded-xl2 shadow-card border border-gray-200/60 dark:border-white/10;
+  }
+  .app-card-hover {
+    @apply transition-shadow hover:shadow-cardHover;
+  }
+  .tile-icon {
+    @apply w-12 h-12 rounded-2xl flex items-center justify-center;
+  }
+  .badge {
+    @apply absolute -top-2 -right-2 h-6 min-w-[1.5rem] px-2 rounded-full bg-gray-900 text-white text-xs font-semibold flex items-center justify-center shadow;
+  }
 }

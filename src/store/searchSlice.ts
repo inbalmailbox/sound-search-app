@@ -4,6 +4,8 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 import { fetchTracks } from "../api/soundApi";
 import type { Track } from "../api/soundApi"; 
 
+
+
 export interface SearchState {
   query: string;
   offset: number;
