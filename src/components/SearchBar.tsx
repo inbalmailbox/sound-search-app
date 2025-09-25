@@ -1,43 +1,68 @@
-import React, { useState, useEffect } from "react";
-import { useAppDispatch } from "../store/hooks";
-import { performSearch, addRecent, loadRecent, clearResults } from "../store/searchSlice";
+import React, { useState } from "react";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
+import type { RootState } from "../store/store";
+import { performSearch, addRecent } from "../store/searchSlice";
 
 const SearchBar: React.FC = () => {
   const dispatch = useAppDispatch();
+  const { results, status } = useAppSelector((s: RootState) => s.search);
   const [query, setQuery] = useState("");
 
-  useEffect(() => {
-    dispatch(loadRecent());
-  }, [dispatch]);
+  const isLoading = status === "loading";
+  const showNext = results.length > 0;
 
   const handleSearch = () => {
     const q = query.trim();
     if (!q) return;
-    dispatch(clearResults());
     dispatch(performSearch({ query: q, offset: 0 }));
     dispatch(addRecent(q));
   };
 
-  return (
-    // In SearchBar.tsx, replace the input/button wrapper
-<div className="flex gap-3 items-center">
-  <div className="relative flex-1">
-    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">🔎</span>
-    <input
-      value={query}
-      onChange={(e) => setQuery(e.target.value)}
-      placeholder="Search Mixcloud…"
-      className="w-full pl-9 pr-3 py-2.5 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-brand-300 app-input h-14 px-6"
-    />
-  </div>
-  <button
-    onClick={handleSearch}
-    className="px-5 py-2.5 rounded-xl bg-brand-600 text-white font-medium shadow-card hover:bg-brand-700 transition"
-  >
-    Search
-  </button>
-</div>
+  const handleNext = () => {
+    const q = query.trim();
+    if (!q) return;
+    dispatch(performSearch({ query: q, offset: 6 }));
+  };
 
+  return (
+    <div>
+      <div className="flex items-center gap-3">
+        <div className="relative flex-1">
+          <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-lg opacity-50">
+            🔎
+          </span>
+          <input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search Mixcloud…"
+            className="app-input h-14 pl-10 pr-4 w-full"
+            aria-label="Search query"
+          />
+        </div>
+
+        <button
+          type="button"
+          onClick={handleSearch}
+          className="btn-brand mt-4"
+          disabled={isLoading}
+        >
+          Search
+        </button>
+      </div>
+
+      {showNext && (
+        <div className="mt-4">
+          <button
+            type="button"
+            onClick={handleNext}
+            className="btn-outline-brand mt-4"
+            disabled={isLoading}
+          >
+            Next 6
+          </button>
+        </div>
+      )}
+    </div>
   );
 };
 

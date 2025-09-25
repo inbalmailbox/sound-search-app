@@ -5,20 +5,22 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Primary like your screenshots
-        brand: {
-          50:  '#eef4ff',
-          100: '#dfe9ff',
-          200: '#c0d4ff',
-          300: '#9dbbff',
-          400: '#6f97ff',
-          500: '#3f72ff',   // main
-          600: '#2f5be6',
-          700: '#2444c7',
-          800: '#1e39a7',
-          900: '#1a318c',
+        
+       
+          brand: {
+          50:  '#eef2ff',
+          100: '#e0e7ff',
+          200: '#c7d2fe',
+          300: '#a5b4fc',
+          400: '#818cf8',
+          500: '#6366f1',
+          600: '#4f46e5', // header
+          700: '#4338ca',
+          800: '#3730a3',
+          900: '#312e81'
+        
         },
-        // soft supporting accents for little icon bubbles
+        
         mint:  { 100: '#e9fbf6', 500: '#3ac3a3' },
         peach: { 100: '#fff3ea', 500: '#ff9f6e' },
         sky:   { 100: '#eef6ff', 500: '#6aa8ff' },

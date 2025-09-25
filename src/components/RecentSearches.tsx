@@ -28,7 +28,10 @@ const RecentSearches: React.FC = () => {
             <button
               type="button"
               onClick={() => runSearch(term)}
-              className="px-5 py-2.5 rounded-xl bg-brand-600 text-white font-medium shadow-card hover:bg-brand-700 transition"
+               className="inline-flex items-center rounded-full px-3 py-1.5 text-sm font-medium
+                   bg-brand-100 text-brand-700 hover:bg-brand-200
+                   dark:bg-brand-900/40 dark:text-brand-300 dark:hover:bg-brand-800/60
+                   transition-colors"
             >
               {term}
             </button>
