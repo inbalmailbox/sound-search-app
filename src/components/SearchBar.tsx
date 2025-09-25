@@ -27,7 +27,7 @@ const SearchBar: React.FC = () => {
       value={query}
       onChange={(e) => setQuery(e.target.value)}
       placeholder="Search Mixcloud…"
-      className="w-full pl-9 pr-3 py-2.5 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-brand-300"
+      className="w-full pl-9 pr-3 py-2.5 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-brand-300 app-input h-14 px-6"
     />
   </div>
   <button

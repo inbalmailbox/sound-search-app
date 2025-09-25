@@ -42,7 +42,7 @@ const Layout: React.FC = () => {
 
       {/* Footer */}
       <footer className="text-center py-4 text-sm text-gray-500">
-        © 2025 Sound Search App
+        © 2025 Sound Search App By Inbal Grunfeld 
       </footer>
     </div>
   );

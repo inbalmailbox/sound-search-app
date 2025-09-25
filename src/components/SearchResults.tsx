@@ -29,7 +29,7 @@ const SearchResults: React.FC = () => {
       <div className="pt-1">
         <button
           onClick={next}
-          className="px-4 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 shadow-card"
+           className="px-5 py-2.5 rounded-xl bg-brand-600 text-white font-medium shadow-card hover:bg-brand-700 transition"
         >
           Next 6
         </button>
