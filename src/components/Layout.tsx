@@ -22,22 +22,26 @@ const Layout: React.FC = () => {
 </header>
 
       {/* Main Grid */}
-     <main className="max-w-7xl mx-auto p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-        <section className="app-card p-5 md:col-span-1">
-            <SearchBar />
-            <div className="mt-4">
-            <SearchResults />
-            </div>
-        </section>
+    <main className="max-w-7xl mx-auto p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+      {/* Player FIRST on mobile, middle on desktop */}
+      <section id="player" className="md:col-span-1 order-1 md:order-2">
+        <ImageContainer />
+      </section>
 
-        <section className="md:col-span-1">
-            <ImageContainer />
-        </section>
+      {/* Search + Results SECOND on mobile, left on desktop */}
+      <section className="app-card p-5 md:col-span-1 order-2 md:order-1">
+        <SearchBar />
+        <div className="mt-4">
+          <SearchResults />
+        </div>
+      </section>
 
-        <aside className="app-card p-5 md:col-span-1">
-            <RecentSearches />
-        </aside>
-        </main>
+      {/* Recent searches THIRD  */}
+      <aside className="app-card p-5 md:col-span-1 order-3 md:order-3">
+        <RecentSearches />
+      </aside>
+</main>
+
 
 
       {/* Footer */}
